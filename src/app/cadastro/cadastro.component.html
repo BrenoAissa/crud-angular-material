@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center start">
     <div fxLayout="column" fxFlex="100%" fxFlex.gt-sm="90%" fxFlex.gt-md="800px">
 
-        <form class="mt-60" #clientesFrm="ngForm">
+        <form class="mt-60" #clientesFrm="ngForm" (ngSubmit)="salvar()">
 
             <mat-card>
 
