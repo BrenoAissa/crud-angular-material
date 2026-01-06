@@ -1,4 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mt-20 {
+    margin-top: 12px;
+}
+
+.mt-40 {
+    margin-top: 24px;
+}
+
+.mt-60 {
+    margin-top: 32px;
+}
+
+.ml-5 {
+    margin-left: 4px;
+}
+
+.full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .mt-20 {
+        margin-top: 16px;
+    }
+
+    .mt-40 {
+        margin-top: 32px;
+    }
+
+    .mt-60 {
+        margin-top: 48px;
+    }
+
+    .ml-5 {
+        margin-left: 5px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mt-20 {
+        margin-top: 20px;
+    }
+
+    .mt-40 {
+        margin-top: 40px;
+    }
+
+    .mt-60 {
+        margin-top: 60px;
+    }
+}
