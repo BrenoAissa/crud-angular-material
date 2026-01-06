@@ -14,27 +14,44 @@
                     <div fxLayout="column" fxLayoutGap="16px">
                         <mat-form-field class="full-width">
                             <mat-label>Nome *</mat-label>
-                            <input matInput type="text" placeholder="Ex: Breno Augusto de Oliveira">
+                            <input matInput 
+                                   type="text" 
+                                   [(ngModel)]="cliente.nome"
+                                   name="nome" 
+                                   placeholder="Ex: Breno Augusto de Oliveira">
                         </mat-form-field>
                     </div>
 
                     <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="16px">
 
                         <mat-form-field fxFlex class="full-width">
-                            <mat-label>Data nascimento *</mat-label>
-                            <input matInput placeholder="00/00/0000">
+                            <mat-label>Data nascimento: *</mat-label>
+                            <input matInput 
+                                type="date"
+                                [(ngModel)]="cliente.dataNascimento"
+                                name="dataNascimento" 
+                                placeholder="00/00/0000">
                         </mat-form-field>
 
                         <mat-form-field fxFlex class="full-width">
                             <mat-label>CPF *</mat-label>
-                            <input matInput placeholder="Digite seu CPF">
+                            <input 
+                                matInput
+                                type="text"
+                                [(ngModel)]="cliente.cpf"
+                                name="cpf" 
+                                placeholder="000000000-00">
                         </mat-form-field>
                     </div>
 
                     <div fxLayout="column" fxLayoutGap="16px">
                         <mat-form-field class="full-width">
                             <mat-label>Email *</mat-label>
-                            <input matInput type="email" placeholder="Digite seu email">
+                            <input matInput 
+                                type="text"
+                                [(ngModel)]="cliente.email"
+                                name="email" 
+                                placeholder="exemplo@exemplo.com">
                         </mat-form-field>
                     </div>
 
@@ -46,7 +63,7 @@
                     fxLayoutAlign="end"
                     fxLayoutGap="5px">
 
-                    <button mat-flat-button color="primary">
+                    <button mat-flat-button color="primary" type="submit">
                         Salvar
                     </button>
 
