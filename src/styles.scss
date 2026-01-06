@@ -1,5 +1,11 @@
 html, body {
     height: 100%;
+    overflow-x: hidden;
+}
+
+mat-form-field {
+  width: 100%;
+  min-width: 0 !important;
 }
 
 body {
@@ -25,7 +31,6 @@ body {
 
 .full-width {
     width: 100%;
-    max-width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -57,5 +62,8 @@ body {
 
     .mt-60 {
         margin-top: 60px;
+    }
+    .ml-5 {
+        margin-left: 5px;
     }
 }

@@ -1,19 +1,67 @@
-<div fxLayout="row" fxLayoutAlign="center">
-    <div fxLayout="column" fxFlex="1000px">
+<div fxLayout="row" fxLayoutAlign="center start">
+    <div fxLayout="column" fxFlex="100%" fxFlex.gt-sm="90%" fxFlex.gt-md="800px">
+
         <form class="mt-60" #clientesFrm="ngForm">
+
             <mat-card>
+
                 <mat-card-header>
                     <mat-card-title>Dados pessoais</mat-card-title>
                 </mat-card-header>
+
                 <mat-card-content class="mt-20">
-                    <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+
+                    <div fxLayout="column" fxLayoutGap="16px">
                         <mat-form-field class="full-width">
-                            <mat-label>Nome: *</mat-label>
-                            <input type="text" placeholder="Ex: Breno Augusto de Oliveira" matInput/>
+                            <mat-label>Nome *</mat-label>
+                            <input matInput type="text" placeholder="Ex: Breno Augusto de Oliveira">
                         </mat-form-field>
                     </div>
+
+                    <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="16px">
+
+                        <mat-form-field fxFlex class="full-width">
+                            <mat-label>Data nascimento *</mat-label>
+                            <input matInput placeholder="00/00/0000">
+                        </mat-form-field>
+
+                        <mat-form-field fxFlex class="full-width">
+                            <mat-label>CPF *</mat-label>
+                            <input matInput placeholder="Digite seu CPF">
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="column" fxLayoutGap="16px">
+                        <mat-form-field class="full-width">
+                            <mat-label>Email *</mat-label>
+                            <input matInput type="email" placeholder="Digite seu email">
+                        </mat-form-field>
+                    </div>
+
                 </mat-card-content>
+                
+                <mat-card-actions
+                    fxLayout="column"
+                    fxLayout.gt-sm="row"
+                    fxLayoutAlign="end"
+                    fxLayoutGap="5px">
+
+                    <button mat-flat-button color="primary">
+                        Salvar
+                    </button>
+
+                    <button mat-flat-button color="primary">
+                        Atualizar
+                    </button>
+
+                    <button mat-flat-button color="accent">
+                        Limpar
+                    </button>
+
+                </mat-card-actions>
+
             </mat-card>
+
         </form>
     </div>
 </div>
