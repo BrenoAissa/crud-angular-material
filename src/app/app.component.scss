@@ -13,6 +13,8 @@ mat-toolbar{
   width: auto;
   max-height: 100%;
   object-fit: contain;
+  height: 40px;
+  filter: brightness(0) invert(1);
 }
 
 .logo-link {
@@ -20,6 +22,10 @@ mat-toolbar{
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+}
+
+.title{
+    font-size: 18px;
 }
 
 mat-toolbar a {
