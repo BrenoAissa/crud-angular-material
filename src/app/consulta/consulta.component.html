@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center start">
     <div fxLayout="column" fxFlex="100%" fxFlex.gt-sm="90%" fxFlex.gt-md="800px">
 
-        <form class="mt-60" #buscaFrm="ngForm" >
+        <form class="mt-60" #buscaFrm="ngForm" (ngSubmit)="buscar()">
             
             <mat-card>
 
@@ -16,7 +16,8 @@
                             <mat-label>Nome *</mat-label>
                             <input matInput 
                                    type="text" 
-                                   name="nome" 
+                                   name="nomeBusca"
+                                   [(ngModel)]="nomeBusca"
                                    placeholder="Ex: Breno Augusto de Oliveira">
                         </mat-form-field>
                     </div>
