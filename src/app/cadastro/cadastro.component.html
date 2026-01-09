@@ -63,13 +63,17 @@
                     fxLayoutAlign="end"
                     fxLayoutGap="5px">
 
-                    <button mat-flat-button color="primary" type="submit">
-                        Salvar
-                    </button>
+                    @if(!atualizando){
+                        <button mat-flat-button color="primary" type="submit">
+                            Salvar
+                        </button>
+                    }
 
-                    <button mat-flat-button color="primary">
-                        Atualizar
-                    </button>
+                    @else{
+                        <button mat-flat-button color="primary">
+                            Atualizar
+                        </button>
+                    }
 
                     <button mat-flat-button color="accent">
                         Limpar
