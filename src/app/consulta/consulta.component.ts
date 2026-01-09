@@ -11,6 +11,7 @@ import { ClienteService } from '../cliente.service';
 import { Cliente } from '../cadastro/cliente';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-consulta',
@@ -18,7 +19,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatInputModule, MatCardModule,
     FlexLayoutModule, MatIconModule,
     FormsModule, MatTableModule, MatButtonModule,
-    CommonModule
+    CommonModule, MatTooltipModule
 ],
   templateUrl: './consulta.component.html',
   styleUrl: './consulta.component.scss'
@@ -26,7 +27,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ConsultaComponent implements OnInit{
 
   listarCliente: Cliente[] = [];
-  colunasTabela: string[] = ["id", "nome", "dataNascimento", "cpf", "email", "acoes"]
+  colunasTabela: string[] = ["nome", "dataNascimento", "cpf", "email", "uf", "municipio", "acoes"]
   nomeBusca: string = '';
   snack: MatSnackBar = inject(MatSnackBar);
   

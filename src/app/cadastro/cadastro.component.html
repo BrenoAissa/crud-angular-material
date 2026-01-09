@@ -34,7 +34,7 @@
                         </mat-form-field>
 
                         <mat-form-field fxFlex class="full-width">
-                            <mat-label>CPF *</mat-label>
+                            <mat-label>CPF: *</mat-label>
                             <input 
                                 matInput
                                 type="text"
@@ -45,9 +45,37 @@
                         </mat-form-field>
                     </div>
 
+                      <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="16px">
+
+                        <mat-form-field fxFlex class="full-width">
+                            <mat-label>UF: *</mat-label>
+                            <mat-select [(value)]="cliente.uf" 
+                                    (selectionChange)="carregarMunicipios($event)"
+                                    name="uf">
+                                @for (uf of estados; track uf.sigla) {
+                                <mat-option [value]="uf.sigla">
+                                    {{ uf.sigla }}
+                                </mat-option>
+                            }
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field fxFlex class="full-width">
+                            <mat-label>Cidade: *</mat-label>
+                            <mat-select [(value)]="cliente.municipio" 
+                                        name="municipio">
+                                @for (m of municipios; track m.nome) {
+                                <mat-option [value]="m.nome">
+                                    {{ m.nome }}
+                                </mat-option>
+                            }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
                     <div fxLayout="column" fxLayoutGap="16px">
                         <mat-form-field class="full-width">
-                            <mat-label>Email *</mat-label>
+                            <mat-label>Email: *</mat-label>
                             <input matInput 
                                 type="text"
                                 [(ngModel)]="cliente.email"

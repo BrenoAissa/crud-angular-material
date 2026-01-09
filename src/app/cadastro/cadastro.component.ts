@@ -10,6 +10,9 @@ import { ClienteService } from '../cliente.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BrasilapiService } from '../brasilapi.service';
+import { Estado, Municipio } from '../brasilapi.models';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,6 +20,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     FlexLayoutModule, MatCardModule, 
     FormsModule, MatFormFieldModule, 
     MatInputModule, MatButtonModule,
+    MatSelectModule,
     NgxMaskDirective
   ],
   providers : [ provideNgxMask() ],
@@ -27,9 +31,13 @@ export class CadastroComponent implements OnInit {
   cliente: Cliente = Cliente.newCliente();
   atualizando: boolean = false;
   snack: MatSnackBar = inject(MatSnackBar);
+  estados: Estado[] = [];
+  municipios: Municipio[] = [];
+
 
   constructor(
     private service: ClienteService,
+    private brasilApiService: BrasilapiService,
     private route: ActivatedRoute,
     private router: Router
   ){
@@ -58,13 +66,32 @@ export class CadastroComponent implements OnInit {
         if(existeCliente){
           this.atualizando = true;
           this.cliente = existeCliente;
+          const event = { value: this.cliente.uf }
+          if(this.cliente.uf) this.carregarMunicipios(event as MatSelectChange);
         }
       }
     })
+    this.carregarEstados();
   }
 
   mostrarMensagem(mensagem: string){
     this.snack.open(mensagem, "Ok");
+  }
+
+  carregarEstados(){
+
+    this.brasilApiService.listarEstados().subscribe({
+      next: listaEstados => this.estados = listaEstados,
+      error: erro => console.log("ocorreu um erro: ", erro)
+    })
+  }
+
+  carregarMunicipios(evento: MatSelectChange){
+    const estadoSelecionado = evento.value;
+    this.brasilApiService.listarMunicipios(estadoSelecionado).subscribe({
+      next: listaMunicipios => this.municipios = listaMunicipios,
+      error: erro => console.log('Ocorreu um erro: ', erro)
+    })
   }
 
 }
